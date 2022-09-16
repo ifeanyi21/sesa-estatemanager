@@ -1,0 +1,18 @@
+@media (max-width:950px){
+    .leftAppBar{
+        width: 60% !important;
+        border: 0px;
+        display: none;
+    }
+    .rightAppBar{
+        width: 75% !important;
+        border: 0px;
+        margin-left: 30px;
+    }
+    .appBarWrapper{
+        justify-content: start !important;
+        width: 100%;
+    }
+   
+}
+

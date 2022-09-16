@@ -1,0 +1,33 @@
+@media (max-width:950px){
+    .overViewContainer,
+    .SideBarColoumnsm{
+        width: 90% !important;
+        margin: 0px auto;
+    }
+    .OverViewMain{
+        display: block;
+    }
+    .overViewBox{
+        display: block;
+        
+    }
+    .overViewBoxContent{
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+}
+
+.overViewBoxContent{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.isUhe{
+    padding: 0px 1.5rem;
+}
+
+@media (max-width:450px){
+    .isUhe{
+        padding: 5px !important;
+    } 
+}

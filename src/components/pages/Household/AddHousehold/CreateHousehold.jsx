@@ -1,0 +1,115 @@
+// import React from 'react'
+import {Link} from 'react-router-dom'
+// import Tab from 'react-bootstrap/Tab';
+// import Tabs from 'react-bootstrap/Tabs';
+import AddHousehold from './AddHousehold';
+import AddRFID from './AddRFID';
+import AddAccessCard from './AddAccessCard';
+
+
+// function CreateHousehold() {
+//   return (
+//     <div> 
+//         <Link to='/household' className='no-underline text-sm'>
+//             Household
+//         </Link> <span className='text-sm'>/ Create Household</span> 
+//         <div className="bg-white p-4 mt-9 rounded">
+//     <Tabs defaultActiveKey="Addresident" id="justify-tab-example" className="mb-3" justify>
+//       <Tab eventKey="Addresident" title="Add Resident">
+//        <AddHousehold/>
+//       </Tab>
+//       <Tab eventKey="Add RFID" title="Add RFID">
+//        <AddRFID/>
+//       </Tab>
+//       <Tab eventKey="Add Access Card" title="Add Access Card">
+//        <AddAccessCard/>
+//       </Tab>
+//     </Tabs>
+//         </div>
+//     </div>
+
+   
+//   )
+// }
+
+
+import React,{useState} from 'react';
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+
+
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      style={{color:"black"}}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 2 }}>
+          {children}
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+export default function CreateHousehold() {
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div>
+       <Link to='/household' className='no-underline text-sm'>
+             Household
+       </Link> <span className='text-sm'>/ Create Household</span> 
+        <div className="bg-white p-4 my-8 rounded">
+          
+    <Box sx={{ width: '100%', color:"black"}}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider', }}>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" variant="scrollable"
+  scrollButtons="auto">
+          <Tab  style={{color:value===0?'black':'gray',fontSize:16, textTransform:'capitalize'}}  wrapped label="Add Resident" {...a11yProps(0)} />
+          <Tab  style={{color:value===1?'black':'gray',fontSize:16, textTransform:'capitalize'}}  wrapped label="Add RFID" {...a11yProps(1)} />
+          <Tab  style={{color:value===2?'black':'gray',fontSize:16, textTransform:'capitalize'}}  wrapped label="Add Access Card" {...a11yProps(2)} />
+        </Tabs>
+      </Box>
+      <TabPanel value={value} index={0}>
+        <AddHousehold/>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <AddRFID/>
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <AddAccessCard/>
+      </TabPanel>
+    </Box>
+    </div>
+    </div>
+  
+  );
+}

@@ -1,0 +1,29 @@
+@media (max-width:950px){
+    .SideBar{
+        display: none;
+    }
+    .toggleBtn{
+        display: block !important;
+    }
+}
+
+.toggleBtn{
+    display: none;
+}
+
+.active{
+   background-color:#F1F1F1
+}
+
+/* .SideBar{
+    position: fixed;
+    top: 55px;
+    left: 0px;
+    bottom: 0px;
+    width: 278px;
+    z-index: 996;
+    transition: all 0.3s ease 0s;
+    overflow-y: auto;
+    background-color: rgb(255, 255, 255);
+    
+} */

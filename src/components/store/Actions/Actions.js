@@ -1,0 +1,6 @@
+export const ACTION_TYPES = {
+    CHANGE: "CHANGE_INPUT",
+    LOGOUT:"LOGOUT",
+    LOGIN:"LOGIN",
+    UPLOAD_IMAGE:"UPLOAD_IMAGE"
+}

@@ -1,0 +1,13 @@
+.imageUploader{
+    width: 50%;
+}
+
+@media (max-width:600px){
+    .imageUploader{
+        width: 100% !important;
+    }
+}
+
+.imageEstateStaff{
+    width: 100%;
+}

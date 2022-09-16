@@ -1,0 +1,31 @@
+@media (max-width:950px){
+    .LayoutMain{
+        width: 90% !important;
+        margin: 0px auto;
+        height: 100% !important;
+    }
+    .LayoutContainer{
+        width: 100% !important;
+    }
+    .LayoutReport{
+        width: 100% !important;
+    }
+}
+
+.LayoutContainer{
+    padding: 0px 1.5rem;
+}
+
+@media (max-width:450px){
+    .LayoutContainer{
+        padding: 2px !important;
+    }
+}
+
+.LayoutReport{
+    padding: 0;
+} 
+
+ /* .LayoutMain {
+     height: 100vh;
+ } */
