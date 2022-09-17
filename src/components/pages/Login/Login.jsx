@@ -33,6 +33,7 @@ function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const [loadingButton, setLoadingButton] = useState(false)
 
   const handleEmail = (e)=>{
@@ -48,11 +49,13 @@ function Login() {
   const navigate = useNavigate()
 
   const handleLogin = async (e) => {
-    setLoadingButton(true)
-
+    try {
     e.preventDefault()
 
+    setLoadingButton(true)
+
     if(email.length >0 && password.length>0){
+
       const req = await fetch('https://real.sesadigital.com/api/loginManager',{
         method:"POST",
         headers:{
@@ -67,6 +70,8 @@ function Login() {
 
       const data = await req.json()
 
+      console.log(data);
+
       if(data.manager){
 
         dispatch({type:ACTION_TYPES.LOGIN,payload:data.manager})
@@ -75,9 +80,16 @@ function Login() {
 
       }else{
         setError(true)
+          setErrorMessage("Incorrect Credentials")
         setLoadingButton(false)
       }
     }
+    } catch (error) {
+      setError(true)
+      setErrorMessage("Oops! There was an error try again")
+      setLoadingButton(false)
+    }
+  
 
   }
 
@@ -107,7 +119,7 @@ function Login() {
               
       { error &&
         <div className="alert alert-danger">
-           Incorrect Credentials
+         {errorMessage}
         </div>
       }
    
