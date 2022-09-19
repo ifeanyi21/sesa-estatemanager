@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { ACTION_TYPES } from '../../../store/Actions/Actions';
 import PaymentContext from '../../../store/paymentStore';
-import { Button } from '@mui/material';
+import { Button } from 'react-bootstrap';
 
 function PaymentForm() {
 

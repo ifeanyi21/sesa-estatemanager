@@ -58,6 +58,7 @@ import { PaymentProvider } from './components/store/paymentStore';
 import User from './components/store/auth';
 import { useContext } from 'react';
 import SiteWorkerRequest from './components/pages/Approvals/Requests/SiteWorkerRequest';
+import ValidatedResult from './components/pages/Residents/ViewResident/ValidatedResult';
 
 function App() {
 
@@ -91,6 +92,7 @@ function App() {
           <Route path='/residents/add-residents' element={<Layout children={<AddResident/>}/>}/>
           <Route path='/residents/edit-resident/:id' element={<Layout children={<EditResident/>}/>}/>
           <Route path='/residents/resident/:id' element={<Layout children={<ViewResident/>}/>}/>
+          <Route path='/residents/validate-resident/:id' element={<Layout children={<ValidatedResult/>}/>}/>
 
           <Route path='/properties' element={<Layout children={<Properties/>}/>}/>
           <Route path='/properties/add-property' element={<Layout children={<AddProperty/>}/>}/>

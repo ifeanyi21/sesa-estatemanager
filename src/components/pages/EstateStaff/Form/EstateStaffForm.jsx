@@ -166,7 +166,7 @@ function EstateStaffForm() {
         { location.pathname === `/estate-staff/edit-estate-staff/${id}` &&   <div className='col-lg-12 mt-16'>
         <div className="flex justify-between">
            <div>
-           <button style={{backgroundColor:'#DA6900'}} className='btn btn-sm my-2 text-white mr-10'>Decativate</button>
+           <button style={{backgroundColor:'#FF9500'}} className='btn btn-sm my-2 text-white mr-10'>Decativate</button>
            <Button style={{textTransform:"capitalize"}} variant="outlined" size="small" color="error" startIcon={<DeleteButtonTrashIcon/>}>
              <span className='mr-0'>Delete</span>
             </Button>

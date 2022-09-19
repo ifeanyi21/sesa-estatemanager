@@ -1,11 +1,11 @@
 import React,{useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import WalletCard from '../../WalletCard/WalletCard'
-import BarChart from '../../Charts/BarChart/BarChart'
 import WalletDropDown from './WalletDropDown'
 import PrintAndDownload from '../../PrintAndDownload/PrintAndDownloadButton'
 import { DataGrid } from '@mui/x-data-grid'
 import { Box } from '@mui/material'
+import BarChartContainer from '../../Charts/BarChart/BarChart'
 
 function Balance(params){
   return(
@@ -150,28 +150,21 @@ function Wallet() {
     <div>
         <div className="row">
             <div className="col-lg-8 mb-3">
-                <div className="p-3 bg-white" style={{height:380}}>
-                    <BarChart chartData={userData} options={{
-                      responsive: true,
-                      maintainAspectRatio: false,
-                      plugins: {
-                        legend: {
-                          display: true,
-                          position: "top",
-                          labels:{
-                            usePointStyle:true,
-                            pointStyle:"circle",
-                          }
-                        },
-                      },
-                    }}/>
+                <div className="p-9 bg-white" style={{height:380}}>
+                  <header className='flex justify-between mb-2'>
+                    <p className='m-0'>Wallet Trend</p>
+                     <select name="" id="" className='ml-2'>
+                    <option value="">Today</option>
+                </select>
+                  </header>
+                  <BarChartContainer data = {chartData} Xaxis="day" Yaxis="funds" datakey="funds" fill="#08D231" />
                 </div>
             </div>
             <div className="col-lg-4 mb-3">
                 <div className="p-3 bg-white">
                     <WalletCard name='Estate Wallet' to={'/wallet'}/>
                     <div className='mt-5 mb-4 flex justify-between'>
-                        <Link to={'/wallet/request'} style={{backgroundColor:'#0556E5'}} className='text-white rounded-md p-4 no-underline'>Withdraw</Link>
+                        <Link to={'/wallet/request'} style={{backgroundColor:'#0556E5'}} className='text-white rounded-md p-4 no-underline'>Fund Wallet</Link>
                         <Link to={'/wallet/request'} style={{backgroundColor:'#E1ECFE', color:'#0556E5'}} className='rounded-md p-4 no-underline'>Request</Link>
                     </div>
                 </div>

@@ -8,12 +8,13 @@ import SuccessModal from '../../../SuccessMessage/SuccessMessage'
 
 function AddHousehold() {
   const [modalShow, setModalShow] = useState(false);
-  const [resClass, setResClass] = useState("Landlord (Developer)");
+  const [resCategory, setResCategory] = useState("0");
   const [content, setContent] = useState(false);
 
-  const handleResClass =  (e) =>{
-    setResClass(e.target.value)
+  const handleResCategory=  (e) =>{
+    setResCategory(e.target.value)
   }
+  console.log(resCategory);
 
   return (
     <div className='mt-8'>
@@ -31,7 +32,7 @@ function AddHousehold() {
       <div className='results p-1 mb-8'>
         <div className="row">
           <div className="col-lg-3 mb-3">
-            <img src={House} className='w-full h-full rounded' alt="" />
+            <img src={House} className='w-36 h-36 object-cover rounded-full' alt="" />
           </div>
           <div className="col-lg-3 mb-3">
             <p className='text-muted'>Property Type : <span></span></p>
@@ -73,19 +74,26 @@ function AddHousehold() {
         <div className="row mb-7">
         <div className="col-lg-6 mb-3">
             <label className='mb-2 text-sm'>Resident Class</label>
-            <Form.Select value={resClass} onChange={handleResClass} style={{fontSize:14,width:'80%'}}>
+            <Form.Select  style={{fontSize:14,width:'80%'}}>
               <option >Alpha</option>
               <option >Resident User</option>
             </Form.Select>
           </div>
           <div className="col-lg-6 mb-3">
             <label className='mb-2 text-sm'>Resident Category</label>
-            <Form.Select style={{fontSize:14,width:'80%'}}>
-              <option value="0">Landlord (Tenant)</option>
-              <option value="1">Landlord (Developer)</option>
+            <Form.Select style={{fontSize:14,width:'80%'}} value={resCategory} onChange={handleResCategory}>
+              <option value="0">Landlord (Developer)</option>
+              <option value="1">Landlord (Tenant)</option>
               <option value="2">Resident</option>
             </Form.Select>
           </div>
+          {
+            resCategory === "1" && <div className="col-lg-6 mb-3">
+            <label className='mb-2 text-sm'>Landlord Details</label>
+            <Form.Control style={{width:'80%'}}/>
+          </div>
+          }
+            
         </div>
         <div className="row mb-7">
         

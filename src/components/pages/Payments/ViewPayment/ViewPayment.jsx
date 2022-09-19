@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
-import BarChart from '../../../Charts/BarChart/BarChart'
 import PaymentProgressBar from '../PaymentProgressBar'
 import ViewPaymentDropDown from './ViewPaymentDropDown'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import BarChartContainer from '../../../Charts/BarChart/BarChart'
 
 function ViewPayment() {
     const chartData = [
@@ -67,19 +67,19 @@ function ViewPayment() {
                 <div className="row">
                 
                 <div className="col-lg-6 col-md-4 p-3">
-                    <p className='text-muted mb-3'>Product Code : <span className='text-black'>Here</span></p>
-                    <p className='text-muted mb-3'>Product Name : <span className='text-black'>Here</span></p>
-                    <p className='text-muted mb-3'>Amount Type : <span className='text-black'>Here</span></p>
-                    <p className='text-muted mb-3'>Payment Plan : <span className='text-black'>Here</span></p>
-                    <p className='text-muted mb-3'>Amount (Total) : <span className='text-black'>Here</span></p>
+                    <p className='text-muted mb-3'>Product Code : <span className='text-black'></span></p>
+                    <p className='text-muted mb-3'>Product Name : <span className='text-black'></span></p>
+                    <p className='text-muted mb-3'>Amount Type : <span className='text-black'></span></p>
+                    <p className='text-muted mb-3'>Payment Plan : <span className='text-black'></span></p>
+                    <p className='text-muted mb-3'>Amount (Total) : <span className='text-black'></span></p>
                 </div>
                 <div className="col-lg-6 col-md-6 p-3">
                   <div className="flex justify-between">
                   <div>
-                  <p className='text-muted mb-3'>Start Date : <span className='text-black'>Here</span></p>
-                    <p className='text-muted mb-3'>End Date : <span className='text-black'>Here</span></p>
-                    <p className='text-muted mb-3'>Track Payment : <span className='text-black'>Here</span></p>
-                    <p className='text-muted mb-3'>Status : <span className='text-black'>Here</span></p>
+                  <p className='text-muted mb-3'>Start Date : <span className='text-black'></span></p>
+                    <p className='text-muted mb-3'>End Date : <span className='text-black'></span></p>
+                    <p className='text-muted mb-3'>Track Payment : <span className='text-black'></span></p>
+                    <p className='text-muted mb-3'>Status : <span className='text-black'></span></p>
                   </div>
                  <ViewPaymentDropDown/>
                   </div>
@@ -123,8 +123,7 @@ function ViewPayment() {
                 </FormControl>
                   </header>
                   <div style={{height:400}}>
-                  <BarChart chartData={userData} options={{responsive:true,maintainAspectRatio: false}}/>
-
+                  <BarChartContainer data = {chartData} Xaxis="day" Yaxis="funds" datakey="funds" fill="#08D231" />
                   </div>
                 <div className="flex justify-end mt-5">
                          <Link to={'/payments/'} className='no-underline'>View Recipients</Link>

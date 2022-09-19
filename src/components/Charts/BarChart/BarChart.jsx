@@ -1,12 +1,23 @@
 import React from 'react'
-import {Bar} from 'react-chartjs-2'
-// eslint-disable-next-line 
-import {Chart as ChartJS} from 'chart.js/auto'
+import { ResponsiveContainer,BarChart, XAxis, YAxis, Bar } from 'recharts'
 
-function BarChart({chartData,options}) {
+function BarChartContainer(chartData) {
+  const {data,Xaxis,Yaxis,datakey, datakey1,fill,fill1,} = chartData
+
   return (
-    <Bar data={chartData} options={options}/>
+  <ResponsiveContainer width="100%" height="85%">
+    <BarChart width={150} height={40} data={data}>
+        <XAxis dataKey={Xaxis}/>
+      <YAxis dataKey={Yaxis} />
+      <Bar dataKey={datakey} fill={fill} />
+      {
+        fill1&&
+      <Bar dataKey={datakey1} fill={fill1} />
+      }
+    </BarChart>
+    
+  </ResponsiveContainer>
   )
 }
 
-export default BarChart
+export default BarChartContainer

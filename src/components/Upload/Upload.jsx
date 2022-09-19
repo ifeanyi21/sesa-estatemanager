@@ -9,9 +9,11 @@ export const Upload =({bodyText,labelText,labelClassName,required})=> {
 
 
     const onDrop = useCallback(acceptedFiles => {
-      dispatch({type:ACTION_TYPES.UPLOAD_IMAGE,payload:acceptedFiles[0]})
+      console.log(acceptedFiles);
+      dispatch({type:ACTION_TYPES.UPLOAD_IMAGE,payload:acceptedFiles})
 
       }, [dispatch])
+      
       const {getRootProps, getInputProps, isDragActive,acceptedFiles} = useDropzone({onDrop,accept: {
       'image/jpeg': [],
       'image/png': []
@@ -33,8 +35,7 @@ export const Upload =({bodyText,labelText,labelClassName,required})=> {
           <div className=' rounded cursor-pointer' style={{border:'1px dashed'}}>
        { isDragActive &&
         <div className=''>
-          
-            {bodyText}
+      
         </div>
           }
            <div>

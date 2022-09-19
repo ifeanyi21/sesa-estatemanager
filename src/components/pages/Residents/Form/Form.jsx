@@ -18,6 +18,7 @@ function ResidentForm() {
     const params = useParams()
     const {state} = useContext(ImageUploadContext)
 
+    //eslint-disable-next-line
     const { currentUser } = useContext(User)
 
     const [residentDetails, setResidentDetails] = useState({
@@ -27,11 +28,12 @@ function ResidentForm() {
         dob:"",
         email:"",
         phone:"",
-        image:[state.image],
+        image:state.image,
         gender:"Male",
         id_type:"",
         id_number:"",
-        estate_id:currentUser.estates[0].id
+        //estate_id:currentUser.estates[0].id
+        estate_id:1
     })
 
     console.log(residentDetails);

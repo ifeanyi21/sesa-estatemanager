@@ -1,81 +1,79 @@
 import { Box } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import React,{useState} from 'react'
-import BarChart from '../../../Charts/BarChart/BarChart'
+import BarChartContainer from '../../../Charts/BarChart/BarChart'
 import DoughnutChart from '../../../Charts/DoughnutChart'
+import { DotIcon } from '../../../SideBar/icons'
 
 function WorkRate() {
     const chartData = [
         {
           id:1,
-          day:"Monday",
-          funds: 3883,
+          time:"5am",
+          securityGuard: 383,
+          system:200
         },
         {
           id:2,
-          day:"Tuesday",
-          funds: 8883,
+          time:"6am",
+          securityGuard: 883,
+           system:500
         },
         {
           id:3,
-          day:"Wednesday",
-          funds: 883,
+          time:"7am",
+          securityGuard: 898,
+           system:800
         },
         {
           id:4,
-          day:"Thursday",
-          funds: 883,
+          time:"8am",
+          securityGuard: 383,
+           system:240
         },
         {
           id:5,
-          day:"Friday",
-          funds: 883,
+          time:"9am",
+          securityGuard: 903,
+           system:100
         },
         {
           id:6,
-          day:"Saturday",
-          funds: 883,
+          time:"10am",
+          securityGuard: 203,
+           system:202
         },
         {
           id:7,
-          day:"Sunday",
-          funds: 883,
+          time:"11am",
+          securityGuard: 813,
+           system:290
         }
        
       ]
-    
-      // eslint-disable-next-line 
+
+      const totalCheckin = [30000,20000]
+
+      const totalCheckOut = [40000,20000]
+
+          // eslint-disable-next-line 
       const [userData, setUserData] = useState({
-        labels: chartData.map(data=> data.day),
         datasets:[{
-          label: "Security Guard",
-          data: chartData.map(data=>data.funds),
-          backgroundColor:["#08D231"]
+          data: totalCheckin.map(data=>data),
+          backgroundColor:["#08D231","#F7E541"]
     
-        },
-        {
-            label: "System",
-            data: chartData.map(data=>data.funds),
-            backgroundColor:["#F7E541"],
-      
-          }]
+        }
+        ]
       })
 
         // eslint-disable-next-line 
       const [userCheckout, setUserCheckout] = useState({
-        labels: chartData.map(data=> data.day),
         datasets:[{
-          label: "Security Guard",
-          data: chartData.map(data=>data.funds),
-          backgroundColor:["#3D08D2"]
+          data: totalCheckOut.map(data=>data),
+          backgroundColor:["#3D08D2","#F74183"]
     
-        },
-        {
-            label: "System",
-            data: chartData.map(data=>data.funds),
-            backgroundColor:["#F74183"],
-      
-          }]
+        }
+        ]
       })
 
         const columns = [
@@ -271,26 +269,14 @@ function WorkRate() {
                     <option value="">Today</option>
                 </select>
             </div>
-            <div className="col-lg-8 mb-5">
-                <div className="bg-white p-4 rounded" style={{height:380}}>
-                    <BarChart chartData={userData} options={{
-                       responsive: true,
-                       maintainAspectRatio: false,
-                        plugins: {
-                          legend: {
-                            display: true,
-                            position: "top",
-                            labels:{
-                              usePointStyle:true,
-                              pointStyle:"circle",
-                            }
-                          },
-                        },
-                      }}/>
+            <div className="col-lg-8 mb-5" >
+                <div className="bg-white p-4 rounded" style={{height:490}}>
+                  <h4 className='mb-8'>Check In</h4>
+                  <BarChartContainer data = {chartData} Xaxis="time" Yaxis="securityGuard" datakey="securityGuard" fill="#08D231" datakey1="system" fill1="#F7E541" />
                 </div>
             </div>
             <div className="col-lg-4 mb-5">
-                <div className="bg-white p-4 rounded" style={{height:380}}>
+                <div className="bg-white p-4 rounded" style={{height:490}}>
                     <DoughnutChart chartData={userData} options={{
                     plugins: {
                       legend: {
@@ -303,28 +289,24 @@ function WorkRate() {
                       },
                     },
                   }}/>
+                  <div className="flex justify-between my-8">
+                   <div className='flex items-center'><DotIcon color="#08D231"/> <span className='ml-2'>Security Guard</span> </div>
+                  <p className='m-0'>20,000</p>
+                </div>
+                <div className="flex justify-between">
+              <div className='flex items-center'> <DotIcon color="#F7E541"/> <span className='ml-2'>System</span>  </div>
+                  <p className='m-0'>20,000</p>
+                </div>
                 </div>
             </div>
             <div className="col-lg-8 mb-5">
-                <div className="bg-white p-4 rounded" style={{height:380}}>
-                <BarChart chartData={userCheckout} options={{
-                     responsive: true,
-                     maintainAspectRatio: false,
-                    plugins: {
-                      legend: {
-                        display: true,
-                        position: "top",
-                        labels:{
-                          usePointStyle:true,
-                          pointStyle:"circle",
-                        }
-                      },
-                    },
-                  }}/>
+                <div className="bg-white p-4 rounded" style={{height:490}}>
+                    <h4 className='mb-8'>Check Out</h4>
+               <BarChartContainer data = {chartData} Xaxis="time" Yaxis="securityGuard" datakey="securityGuard" fill="#3D08D2" datakey1="system" fill1="#F74183" />
                 </div>
             </div>
             <div className="col-lg-4 mb-5">
-                <div className="bg-white p-4 rounded" style={{height:380}}>
+                <div className="bg-white p-4 rounded" style={{height:490}}>
                 <DoughnutChart chartData={userCheckout} options={{
                   plugins: {
                     legend: {
@@ -337,6 +319,14 @@ function WorkRate() {
                     },
                   },
                 }}/>
+                <div className="flex justify-between my-8">
+                  <div className='flex items-center'><DotIcon color="#3D08D2"/> <span className='ml-2'>Security Guard</span> </div>
+                  <p className='m-0'>20,000</p>
+                </div>
+                <div className="flex justify-between">
+                  <div className='flex items-center'> <DotIcon color="#F74183"/> <span className='ml-2'>System</span>  </div>
+                  <p className='m-0'>20,000</p>
+                </div>
                 </div>
             </div>
             <div className="col-lg-12">

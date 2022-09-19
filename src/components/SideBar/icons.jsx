@@ -715,4 +715,19 @@ export function AddButtonIcon(){
 
 }
 
+export function DotIcon({color}){
+  return ( 
+  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="5" cy="5" r="5" fill={color}/>
+  </svg>
+  )
+}
+
+export function FilterIcon(){
+  return <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.77464 14C6.55797 14 6.37464 13.925 6.22464 13.775C6.07464 13.625 5.99964 13.4417 5.99964 13.225V7.65L0.599637 0.825C0.466304 0.641666 0.449637 0.458333 0.549637 0.275C0.649637 0.0916668 0.807971 0 1.02464 0H12.9746C13.1913 0 13.3496 0.0916668 13.4496 0.275C13.5496 0.458333 13.533 0.641666 13.3996 0.825L7.99964 7.65V13.225C7.99964 13.4417 7.92464 13.625 7.77464 13.775C7.62464 13.925 7.4413 14 7.22464 14H6.77464Z" fill="#1A1C1E"/>
+</svg>
+
+}
+
 // {{maskType:"alpha"}}

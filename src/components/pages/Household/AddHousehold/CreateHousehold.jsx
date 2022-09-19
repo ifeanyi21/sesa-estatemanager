@@ -1,38 +1,7 @@
-// import React from 'react'
 import {Link} from 'react-router-dom'
-// import Tab from 'react-bootstrap/Tab';
-// import Tabs from 'react-bootstrap/Tabs';
 import AddHousehold from './AddHousehold';
 import AddRFID from './AddRFID';
 import AddAccessCard from './AddAccessCard';
-
-
-// function CreateHousehold() {
-//   return (
-//     <div> 
-//         <Link to='/household' className='no-underline text-sm'>
-//             Household
-//         </Link> <span className='text-sm'>/ Create Household</span> 
-//         <div className="bg-white p-4 mt-9 rounded">
-//     <Tabs defaultActiveKey="Addresident" id="justify-tab-example" className="mb-3" justify>
-//       <Tab eventKey="Addresident" title="Add Resident">
-//        <AddHousehold/>
-//       </Tab>
-//       <Tab eventKey="Add RFID" title="Add RFID">
-//        <AddRFID/>
-//       </Tab>
-//       <Tab eventKey="Add Access Card" title="Add Access Card">
-//        <AddAccessCard/>
-//       </Tab>
-//     </Tabs>
-//         </div>
-//     </div>
-
-   
-//   )
-// }
-
-
 import React,{useState} from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';

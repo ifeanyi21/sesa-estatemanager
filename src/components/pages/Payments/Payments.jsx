@@ -24,17 +24,17 @@ function Payments() {
                             <div className="row">
                             
                          <div className="col-lg-6 col-md-6 p-3">
-                             <p className='text-muted mb-3'>Product Code : <span className='text-black'>Here</span></p>
-                             <p className='text-muted mb-3'>Product Name : <span className='text-black'>Here</span></p>
-                             <p className='text-muted mb-3'>Amount Type : <span className='text-black'>Here</span></p>
-                             <p className='text-muted mb-3'>Payment Plan : <span className='text-black'>Here</span></p>
-                             <p className='text-muted mb-3'>Amount (Total) : <span className='text-black'>Here</span></p>
+                             <p className='text-muted mb-3'>Product Code : <span className='text-black'></span></p>
+                             <p className='text-muted mb-3'>Product Name : <span className='text-black'></span></p>
+                             <p className='text-muted mb-3'>Amount Type : <span className='text-black'></span></p>
+                             <p className='text-muted mb-3'>Payment Plan : <span className='text-black'></span></p>
+                             <p className='text-muted mb-3'>Amount (Total) : <span className='text-black'></span></p>
                          </div>
                          <div className="col-lg-6 col-md-6 p-3">
-                         <p className='text-muted mb-3'>Start Date : <span className='text-black'>Here</span></p>
-                             <p className='text-muted mb-3'>End Date : <span className='text-black'>Here</span></p>
-                             <p className='text-muted mb-3'>Track Payment : <span className='text-black'>Here</span></p>
-                             <p className='text-muted mb-3'>Active : <span className='text-black'>Here</span></p>
+                         <p className='text-muted mb-3'>Start Date : <span className='text-black'></span></p>
+                             <p className='text-muted mb-3'>End Date : <span className='text-black'></span></p>
+                             <p className='text-muted mb-3'>Track Payment : <span className='text-black'></span></p>
+                             <p className='text-muted mb-3'>Active : <span className='text-black'></span></p>
                          </div>
         
                         </div>

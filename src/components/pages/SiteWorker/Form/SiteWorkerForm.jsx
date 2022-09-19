@@ -47,7 +47,7 @@ function SiteWorkerForm() {
           <div className='results p-1 mb-5'>
             <div className="row">
               <div className="col-lg-3 mb-3">
-                <img src={House} className='w-full h-full rounded' alt="" />
+                <img src={House} className='rounded-full w-36 h-36 object-cover'  alt="" />
               </div>
               <div className="col-lg-3 mb-3">
                 <p className='text-muted'>Property Type : <span></span></p>
@@ -189,7 +189,7 @@ function SiteWorkerForm() {
         {
             location.pathname === "/site-worker/edit-site-worker/"+id &&      <div className="flex justify-between items-center">
             <div>
-               <button style={{backgroundColor:'#DA6900'}} className='btn btn-sm my-2 text-white mr-10'>Decativate</button>
+               <button style={{backgroundColor:'#FF9500'}} className='btn btn-sm my-2 text-white mr-10'>Decativate</button>
                <Button style={{textTransform:"capitalize"}} variant="outlined" size="small" color="error" startIcon={<DeleteButtonTrashIcon/>}>
                  <span className='mr-0'>Delete</span>
                 </Button>

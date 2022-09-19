@@ -92,16 +92,8 @@ export default function RequestTab() {
         <label className='text-xs mb-2 font-semibold'>Description</label>
             <Form.Control type='text' />
         </div>
-        <div className='col-12 mb-3'>
-        <label className='text-xs mb-2 font-semibold'>Attach an Item</label>
-            <Form.Control type='file' />
-        </div>
-        <div className='col-12 mb-3'>
-        <label className='text-xs mb-2 font-semibold'>Send To</label>
-            <Form.Control type='text' />
-        </div>
         <div className="col-12 mb-3 d-grip">
-            <button className='btn btn-primary w-full'>Send</button>
+            <button className='btn btn-primary w-full'>Send Request</button>
         </div>
        </div>
         </Form>

@@ -1,42 +1,50 @@
 import React,{useState} from 'react'
-import LineChart from '../../Charts/LineChart/LineChart'
+import LineChartContainer from '../../Charts/LineChart/LineChart'
+import {DotIcon} from '../../SideBar/icons'
 
 function ReportInfoGraphics() {
     const chartData = [
         {
             id:1,
-            day:"Monday",
-            funds: 10,
+            day:"Mon",
+            checkout:83,
+            checkin: 10,
           },
           {
             id:3,
-            day:"Tuesday",
-            funds: 3,
+            day:"Tues",
+            checkout:3,
+            checkin: 30,
           },
           {
             id:4,
-            day:"Wednesday",
-            funds: 62,
+            day:"Wed",
+            checkout:13,
+            checkin: 62,
           },
           {
             id:5,
-            day:"Thursday",
-            funds: 13,
+            day:"Thur",
+            checkout:73,
+            checkin: 13,
           },
           {
             id:6,
-            day:"Friday",
-            funds: 49,
+            day:"Fri",
+            checkout:53,
+            checkin: 49,
           },
           {
             id:7,
-            day:"Saturday",
-            funds: 99,
+            day:"Sat",
+            checkout:21,
+            checkin: 99,
           },
           {
             id:8,
-            day:"Sunday",
-            funds: 9,
+            day:"Sun",
+            checkout:48,
+            checkin: 100,
           },
        
       ]
@@ -141,7 +149,14 @@ function ReportInfoGraphics() {
         </div>
         </div>
         <div className="col-lg-7 mb-3" style={{height:350}}>
-        <LineChart chartData={userData} options={{responsive:true,maintainAspectRatio: false}}/>
+          <div className="flex justify-between">
+            <h6>Trend</h6>
+            <div className="flex justify-between">
+              <div className="flex items-baseline"><DotIcon color="#08D231"/> <span className="ml-1">Check-in</span> </div>
+              <div className="flex items-baseline ml-3"><DotIcon color="#AE1911"/> <span className="ml-1">Check-out</span> </div>
+            </div>
+          </div>
+          <LineChartContainer data = {chartData} Xaxis="day" Yaxis="funds" datakey="funds" fill1="#3DEABA" fill2="#AE1911"/>
         </div>
     </div>
 </div>

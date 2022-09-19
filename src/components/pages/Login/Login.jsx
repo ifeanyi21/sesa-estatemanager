@@ -49,28 +49,53 @@ function Login() {
   const navigate = useNavigate()
 
   const handleLogin = async (e) => {
+     //navigate('/overview')
     try {
     e.preventDefault()
 
     setLoadingButton(true)
+    setErrorMessage("")
+    setError(false)
 
     if(email.length >0 && password.length>0){
 
-      const req = await fetch('https://real.sesadigital.com/api/loginManager',{
-        method:"POST",
-        headers:{
-          "Accept":"application/json", 
-          "Content-Type":"application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        })
-      })
+      // const req = await fetch('https://real.sesadigital.com/api/loginManager',{
+      //   method:"POST",
+      //   headers:{
+      //     "Accept":"application/json", 
+      //     "Content-Type":"application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     email,
+      //     password,
+      //   })
+      // })
 
-      const data = await req.json()
+      // const data = await req.json()
 
-      console.log(data);
+      // console.log(data);
+
+      const data = {
+"message": "you are logged in", "token":
+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xv Z2luTWFuYWdlciIsImlhdCI6MTY2MjU1MDg0NiwiZXhwIjoxNjYyNTU0NDQ2LCJuYmYiOjE2NjI1NTA4ND YsImp0aSI6ImF1UHZxWWZJSDJvZVZmekciLCJzdWIiOiI5IiwicHJ2IjoiNmU2ODk2MjI1NGQ2ZGY0MDFk MDNiMzBhMzllMTYyMzY0ZTE2NDZjZCJ9.r5uSXvWTGQeuZhG9-hSTOb2pi8q7hKAMbrQylX5kU6s",
+"token_type": "bearer", "manager": {
+"id": 9,
+"f_name": "me",
+"l_name": "ayuk",
+"email": "me@me.com",
+"email_verified_at": null,
+"address": "aba",
+"status": "notActive",
+"photo": null,
+"created_at": "2022-09-07T11:40:24.000000Z", "updated_at": "2022-09-07T11:40:24.000000Z"
+},
+estates:[
+  {
+    id:1
+  }
+],
+"expires_in": 3600 }
+
 
       if(data.manager){
 

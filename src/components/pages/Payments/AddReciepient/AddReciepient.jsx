@@ -1,13 +1,17 @@
 import React,{useState,useContext} from 'react'
 import { Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { AlphaIcon } from '../../../SideBar/icons'
+//import { Fragment } from 'react'
+//import { Menu, Transition } from '@headlessui/react'
+import { AlphaIcon, FilterIcon } from '../../../SideBar/icons'
 import SuccessModal from '../../../SuccessMessage/SuccessMessage'
 import { Box } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import PaymentContext from '../../../store/paymentStore'
+//import Checkbox from '@mui/material/Checkbox';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+//import MenuItem from '@mui/material/MenuItem';
 
 
 function AddReciepients() {
@@ -122,7 +126,55 @@ function AddReciepients() {
       const selectedRowsData = ids.map((id) => dummyResident.find((row) => row.id === id));
       setSelectedResident(selectedRowsData)
   
-    };     
+    };    
+    
+    const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const [filterOptions, setFilterOptions] = useState({
+    business:false,
+    residential:false,
+    '2bdrm':false,
+    '3bdrm':false,
+    duplex:false,
+    tenant:false,
+    landlordDev:false,
+    landlordNonRes:false,
+    landlordRes:false,
+    resUser:false,
+    alpha:false
+
+  })
+
+  const handleTypeChange = (e)=>{
+    setType(e.target.value); 
+    setSelectedProperty([]); 
+    setSelectedResident([])
+
+    setFilterOptions((prev)=>{
+        return{
+            ...prev,
+            resUser:false,
+            alpha:false,
+        }
+    })
+  }
+
+  const handleFilter = (e)=>{
+    setFilterOptions((prev)=>{
+        return{
+            ...prev,
+            [e.target.name]:e.target.checked
+        }
+    })
+  }
+
 
   return (
     <div>
@@ -148,102 +200,100 @@ function AddReciepients() {
                 <h6 className='mb-8'>Filter Selection</h6>
                 <header className='row items-center'>
                     <div className="col-md-4 mb-1">
-                        <Form.Select value={type} onChange={(e)=>{setType(e.target.value); setSelectedProperty([]); setSelectedResident([])}}>
+                        <Form.Select value={type} onChange={handleTypeChange}>
                             <option value="0">Households</option>
                             <option value="1">Residents</option>
                         </Form.Select>
                     </div>
                     <div className="col-md-2 mb-1">
-                    <Menu as="div" className="relative inline-block text-left">
                         <div>
-                            <Menu.Button className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
-                            Filter
-                            </Menu.Button>
-                        </div>
-
-                        <Transition
-                            as={Fragment}
-                            enter="transition ease-out duration-100"
-                            enterFrom="transform opacity-0 scale-95"
-                            enterTo="transform opacity-100 scale-100"
-                            leave="transition ease-in duration-75"
-                            leaveFrom="transform opacity-100 scale-100"
-                            leaveTo="transform opacity-0 scale-95"
+                        <Button
+                            id="basic-button"
+                            aria-controls={open ? 'basic-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                            onClick={handleClick}
+                            className="flex items-center"
+                            sx={{textTransform:"capitalize",color:'black', border:'1px solid gray'}}
                         >
-                            <Menu.Items className="absolute left-1 z-10 mt-2 w-64 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            <div className="py-1">
-                                <Menu.Item>
-                                    <div className='px-4 py-2'>
+                           <span className='mr-8'>Filter</span>  <FilterIcon/> 
+                        </Button>
+                        <Menu
+                            id="basic-menu"
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                            MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                            }}
+                        >
+                            <div className='px-4 py-2'>
                                     <p>Property Category</p>
 
                                     <div className='mb-2'>
-                                    <input type="checkbox" name="" id="" />
+                                    <input className='scale-150' type="checkbox" name="business" onChange={handleFilter} checked={filterOptions['business']} />
                                     <label className='ml-3'>Business</label>
                                     </div>
 
                                     <div className='mb-4'>
-                                    <input type="checkbox" name="" id="" />
+                                    <input className='scale-150' type="checkbox" name="residential" onChange={handleFilter} checked={filterOptions['residential']}  />
                                     <label className='ml-3'>Residential</label>
                                     </div>
 
                                     <p>Property Type</p>
 
                                     <div className='mb-2'>
-                                    <input type="checkbox" name="" id="" />
+                                    <input className='scale-150' type="checkbox" name="2bdrm" onChange={handleFilter} checked={filterOptions['2bdrm']} />
                                     <label className='ml-3'>2 Bedroom</label>
                                     </div>
 
                                     <div className='mb-2'>
-                                    <input type="checkbox" name="" id="" />
+                                    <input className='scale-150' type="checkbox" name="3bdrm"  onChange={handleFilter} checked={filterOptions['3bdrm']}/>
                                     <label className='ml-3'>3 Bedroom</label>
                                     </div>
 
                                     <div className='mb-4'>
-                                    <input type="checkbox" name="" id="" />
+                                    <input className='scale-150' type="checkbox" name="duplex" onChange={handleFilter} checked={filterOptions['duplex']} />
                                     <label className='ml-3'>Duplex</label>
                                     </div>
 
                                     <p>Reisdent Class</p>
 
                                     <div className='mb-2'>
-                                    <input type="checkbox" name="" id="" />
+                                    <input className='scale-150' type="checkbox" name="tenant" onChange={handleFilter} checked={filterOptions['tenant']}/>
                                     <label className='ml-3'>Tenant (Resident)</label>
                                     </div>
 
                                     <div className='mb-2'>
-                                    <input type="checkbox" name="" id="" />
+                                    <input className='scale-150' type="checkbox" name="landlordRes" onChange={handleFilter} checked={filterOptions['landlordRes']} />
                                     <label className='ml-3'>Landlord (Resident)</label>
                                     </div>
 
                                     <div className='mb-2'>
-                                    <input type="checkbox" name="" id="" />
+                                    <input className='scale-150' type="checkbox" name="landlordNonRes"  onChange={handleFilter} checked={filterOptions['landlordNonRes']}/>
                                     <label className='ml-3'>Landlord(Non Resident)</label>
                                     </div>
 
                                     <div className='mb-4'>
-                                    <input type="checkbox" name="" id="" />
+                                    <input className='scale-150' type="checkbox" name="landlordDev" onChange={handleFilter} checked={filterOptions['landlordDev']} />
                                     <label className='ml-3'>Landlord (Developer)</label>
                                     </div>
-
-                                    <p>Reisdent Category</p>
+                                    
+                                    <p className={type==="0"?'text-muted':""}>Reisdent Category</p>
 
                                         <div className='mb-2'>
-                                        <input type="checkbox" name="" id="" />
-                                        <label className='ml-3'>Alphas</label>
+                                        <input className='scale-150' type="checkbox" name="alpha" disabled={type==="0"&&true} onChange={handleFilter} checked={filterOptions['alpha']} />
+                                        <label className={`${type==="0"&&'text-muted'} ml-3`}>Alphas</label>
                                         </div>
 
                                         <div className='mb-2'>
-                                        <input type="checkbox" name="" id="" />
-                                        <label className='ml-3'>Resident User</label>
+                                        <input className='scale-150' type="checkbox" name="resUser" disabled={type==="0"&&true}  onChange={handleFilter} checked={filterOptions['resUser']} />
+                                        <label className={`${type==='0'&&'text-muted'} ml-3`}>Resident User</label>
                                         </div>
                                  
                                     </div>
-                           
-                                </Menu.Item>
-                            </div>
-                            </Menu.Items>
-                        </Transition>
                         </Menu>
+                        </div>
                     </div>
                     {
                         type === "1" && <div className="col-md-4 flex items-start">
