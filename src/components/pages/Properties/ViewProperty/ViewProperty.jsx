@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import ProfilePicture from '../../../../images/House.jpeg'
 import PrintAndDownload from '../../../PrintAndDownload/PrintAndDownloadButton'
+import ViewImage from '../../../ViewPageImage/ViewImage'
 
 function ViewProperty() {
   return (
@@ -11,11 +12,7 @@ function ViewProperty() {
         </Link> <span className='text-sm'>/ Property Details</span> 
 
         <div className="bg-white p-5 mt-8">
-        <div className='bg-slate-300 p-2 h-32 relative'>
-                <div className='absolute top-16 left-6'>
-                    <img  src={ProfilePicture} className='w-36 h-36 rounded-full object-cover' alt="Username" />
-                </div>
-            </div>
+        <ViewImage image={ProfilePicture}/>
             <header className='flex justify-end mt-20 mb-10'>
                <PrintAndDownload/> 
             </header>

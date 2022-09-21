@@ -83,11 +83,11 @@ function SmallScreenSideBar() {
             </div>
           </Link>
 
-           {/* <Link to='/payments' className='text-inherit no-underline rounded p-2 text-sm'>
+           <Link to='/payments' className='text-inherit no-underline rounded p-2 text-sm'>
           <div className={`rounded p-2 ${url.pathname.includes('/payments')&&`${CSS.active} text-sm text-black`}`}>
              <p className='m-0 p-0 flex items-center'><span className='mr-2'>{url.pathname.includes('/payments')?<SelectedPaymentIcon/>:<PaymentsIcon/>}</span>Payments</p>
             </div>
-          </Link> */}
+          </Link>
 
           <Link to='/reports' className='text-inherit no-underline rounded p-2 text-sm'>
           <div className={`rounded p-2 ${url.pathname.includes("/reports") && 'bg-slate-300 text-sm text-black'}`}>

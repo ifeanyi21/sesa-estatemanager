@@ -1,44 +1,99 @@
-import React from 'react'
-import Car from '../../../../images/car.jpeg'
-
+import React from "react";
 
 function ProductList() {
   return (
-    <div className="border rounded-lg">
-            <div className="row p-3">
-                    <div className="col-lg-3 p-3 mb-3">
-                        <img src={Car} className='rounded' alt="" />
-                    </div>
-                    <div className="col-lg-3 p-3 mb-3">
-                       <p className='text-muted mb-2 text-sm'>Property Code: </p>
-                       <p className='text-muted mb-2 text-sm'>Product Name: </p>
-                       <p className='text-muted mb-2 text-sm'>Amount Type: </p>
-                       <p className='text-muted mb-2 text-sm'>Amount Pay Type: </p>
-                       <p className='text-muted mb-2 text-sm'>Amount (Total): </p>
-                    </div>
-                    <div className="col-lg-3 p-3 mb-3">
-                       <p className='text-muted mb-2 text-sm'>Start Date: </p>
-                       <p className='text-muted mb-2 text-sm'>End Date: </p>
-                       <p className='text-muted mb-2 text-sm'>Track Payment: </p>
-                    </div>
-                </div>
-                <div className="p-3 flex overflow-auto">
-                    <div className='text-center mx-4'>
-                    <div style={{backgroundColor:'#23C375'}} className="rounded-full w-7 h-7 mx-auto"></div>
-                    <p style={{color:'#23C375'}}>₦5,000</p>
-                    </div>
-                    <div className='text-center mx-4'>
-                    <div style={{backgroundColor:'#23C375'}} className="rounded-full w-7 h-7 mx-auto"></div>
-                    <p style={{color:'#23C375'}}>₦5,000</p>
-                    </div>
-                    <div className='text-center mx-4'>
-                    <div style={{backgroundColor:'#23C375'}} className="rounded-full w-7 h-7 mx-auto"></div>
-                    <p style={{color:'#23C375'}}>₦5,000</p>
-                    </div>
-                   
-                </div>
-            </div>
-  )
+    <>
+      <div className="row">
+        <div className="col-lg-6 p-3 mb-3">
+          <p className="text-muted mb-2 text-base">Property Code: </p>
+          <p className="text-muted mb-2 text-base">Product Name: </p>
+          <p className="text-muted mb-2 text-base">Amount Type: </p>
+          <p className="text-muted mb-2 text-base">Amount Pay Type: </p>
+          <p className="text-muted mb-2 text-base">Amount (Total): </p>
+        </div>
+        <div className="col-lg-6 p-3 mb-3">
+          <p className="text-muted mb-2 text-base">Start Date: </p>
+          <p className="text-muted mb-2 text-base">End Date: </p>
+          <p className="text-muted mb-2 text-base">Track Payment: </p>
+          <p className="text-muted mb-2 text-base">Assigned Group: </p>
+          <p className="text-muted mb-2 text-base">Status: </p>
+        </div>
+      </div>
+      <div className="row">
+        <p className="text-base mb-11">
+          Payment Status: <span className="text-muted">Installments(5)</span>{" "}
+        </p>
+
+        {/* <svg
+          width="488"
+          height="24"
+          viewBox="0 0 588 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <mask
+            id="mask0_2205_27326"
+            style={{ maskType: "alpha" }}
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="24"
+            height="24"
+          >
+            <rect width="24" height="24" fill="#D9D9D9" />
+          </mask>
+          <g mask="url(#mask0_2205_27326)">
+            <path
+              d="M10.6 13.8L8.425 11.625C8.24167 11.4417 8.01667 11.35 7.75 11.35C7.48333 11.35 7.25 11.45 7.05 11.65C6.86667 11.8333 6.775 12.0667 6.775 12.35C6.775 12.6333 6.86667 12.8667 7.05 13.05L9.9 15.9C10.0833 16.0833 10.3167 16.175 10.6 16.175C10.8833 16.175 11.1167 16.0833 11.3 15.9L16.975 10.225C17.1583 10.0417 17.25 9.81667 17.25 9.55C17.25 9.28333 17.15 9.05 16.95 8.85C16.7667 8.66667 16.5333 8.575 16.25 8.575C15.9667 8.575 15.7333 8.66667 15.55 8.85L10.6 13.8ZM12 22C10.6167 22 9.31667 21.7373 8.1 21.212C6.88333 20.6873 5.825 19.975 4.925 19.075C4.025 18.175 3.31267 17.1167 2.788 15.9C2.26267 14.6833 2 13.3833 2 12C2 10.6167 2.26267 9.31667 2.788 8.1C3.31267 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.31233 8.1 2.787C9.31667 2.26233 10.6167 2 12 2C13.3833 2 14.6833 2.26233 15.9 2.787C17.1167 3.31233 18.175 4.025 19.075 4.925C19.975 5.825 20.6873 6.88333 21.212 8.1C21.7373 9.31667 22 10.6167 22 12C22 13.3833 21.7373 14.6833 21.212 15.9C20.6873 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6873 15.9 21.212C14.6833 21.7373 13.3833 22 12 22Z"
+              fill="#0446B9"
+            />
+          </g>
+          <line x1="30" y1="11.5" x2="138" y2="11.5" stroke="#0446B9" />
+          <mask
+            id="mask1_2205_27326"
+            style={{ maskType: "alpha" }}
+            maskUnits="userSpaceOnUse"
+            x="144"
+            y="0"
+            width="24"
+            height="24"
+          >
+            <rect x="144" width="24" height="24" fill="#D9D9D9" />
+          </mask>
+          <g mask="url(#mask1_2205_27326)">
+            <path
+              d="M154.6 13.8L152.425 11.625C152.242 11.4417 152.017 11.35 151.75 11.35C151.483 11.35 151.25 11.45 151.05 11.65C150.867 11.8333 150.775 12.0667 150.775 12.35C150.775 12.6333 150.867 12.8667 151.05 13.05L153.9 15.9C154.083 16.0833 154.317 16.175 154.6 16.175C154.883 16.175 155.117 16.0833 155.3 15.9L160.975 10.225C161.158 10.0417 161.25 9.81667 161.25 9.55C161.25 9.28333 161.15 9.05 160.95 8.85C160.767 8.66667 160.533 8.575 160.25 8.575C159.967 8.575 159.733 8.66667 159.55 8.85L154.6 13.8ZM156 22C154.617 22 153.317 21.7373 152.1 21.212C150.883 20.6873 149.825 19.975 148.925 19.075C148.025 18.175 147.313 17.1167 146.788 15.9C146.263 14.6833 146 13.3833 146 12C146 10.6167 146.263 9.31667 146.788 8.1C147.313 6.88333 148.025 5.825 148.925 4.925C149.825 4.025 150.883 3.31233 152.1 2.787C153.317 2.26233 154.617 2 156 2C157.383 2 158.683 2.26233 159.9 2.787C161.117 3.31233 162.175 4.025 163.075 4.925C163.975 5.825 164.687 6.88333 165.212 8.1C165.737 9.31667 166 10.6167 166 12C166 13.3833 165.737 14.6833 165.212 15.9C164.687 17.1167 163.975 18.175 163.075 19.075C162.175 19.975 161.117 20.6873 159.9 21.212C158.683 21.7373 157.383 22 156 22Z"
+              fill="#0446B9"
+            />
+          </g>
+          <line x1="174" y1="11.5" x2="282" y2="11.5" stroke="#0446B9" />
+          <circle
+            cx="298"
+            cy="12"
+            r="9.25"
+            stroke="#0446B9"
+            strokeWidth="1.5"
+          />
+          <line x1="314" y1="11.5" x2="422" y2="11.5" stroke="#8C8D8E" />
+          <circle
+            cx="438"
+            cy="12"
+            r="9.25"
+            stroke="#8C8D8E"
+            strokeWidth="1.5"
+          />
+          <line x1="454" y1="11.5" x2="562" y2="11.5" stroke="#8C8D8E" />
+          <circle
+            cx="578"
+            cy="12"
+            r="9.25"
+            stroke="#8C8D8E"
+            strokeWidth="1.5"
+          />
+        </svg> */}
+      </div>
+    </>
+  );
 }
 
-export default ProductList
+export default ProductList;

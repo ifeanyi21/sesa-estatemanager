@@ -3,7 +3,7 @@ import LineChartContainer from '../../Charts/LineChart/LineChart'
 import {DotIcon} from '../../SideBar/icons'
 
 
-function DetailedInfoGraphics({title}) {
+function DetailedInfoGraphics({title,totalCount}) {
        const chartData = [
         {
             id:1,
@@ -53,9 +53,14 @@ function DetailedInfoGraphics({title}) {
   return (
     <div className="bg-white p-4">
     <div className="row">
-        <div className="col-lg-5 mb-3 border-r-2" style={{height:350}}>
+        <div className="col-lg-5 mb-3 border-r-2">
             <div className="p-3 mb-3">
             <h6>Count</h6>
+            {
+              totalCount&&
+            <p className='text-muted mb-0 mt-8 text-sm'>Total Event: {totalCount}</p>
+
+            }
             </div>
             <div className="row">
                 <div className="col-lg-6 mb-3">
@@ -101,28 +106,28 @@ function DetailedInfoGraphics({title}) {
                     <svg className='mt-1' width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="6.5" cy="7" r="6.5" fill="#D9D9D9"/>
                     </svg>
-                    <p className='ml-2 mb-0'>P03949:500 checkins</p>
+                    <p className='ml-2 mb-0'>P03949:500 Check- In</p>
 
                     </div>
                     <div className="flex mb-3 text-sm">
                     <svg className='mt-1' width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="6.5" cy="7" r="6.5" fill="#D9D9D9"/>
                     </svg>
-                    <p className='ml-2 mb-0'>P03949:500 checkins</p>
+                    <p className='ml-2 mb-0'>P03949:500 Check- In</p>
 
                     </div>
                     <div className="flex mb-3 text-sm">
                     <svg className='mt-1' width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="6.5" cy="7" r="6.5" fill="#D9D9D9"/>
                     </svg>
-                    <p className='ml-2 mb-0'>P03949:500 checkins</p>
+                    <p className='ml-2 mb-0'>P03949:500 Check- In</p>
 
                     </div>
                 </div>
             </div>  
       
         </div>
-        <div className="col-lg-7 mb-3" style={{height:300}}>
+        <div className="col-lg-7 mb-3 mt-8" style={{height:350}}>
              <div className="flex justify-between">
             <h6>Trend</h6>
             <div className="flex justify-between">
@@ -130,7 +135,7 @@ function DetailedInfoGraphics({title}) {
               <div className="flex items-baseline ml-3"><DotIcon color="#AE1911"/> <span className="ml-1">Check-out</span> </div>
             </div>
           </div>
-        <LineChartContainer data = {chartData} Xaxis="day" Yaxis="funds" datakey="funds" fill1="#3DEABA" fill2="#AE1911"/>
+        <LineChartContainer data = {chartData} Xaxis="day" Yaxis="funds" datakey="funds" fill1="#25BF18" fill2="#AE1911"/>
         </div>
     </div>
 </div>

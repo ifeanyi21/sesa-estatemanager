@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 import ProfilePicture from '../../../../images/security.jpeg'
 import PrintAndDownload from '../../../PrintAndDownload/PrintAndDownloadButton'
+import ViewImage from '../../../ViewPageImage/ViewImage';
 import GenerateID from './GenerateID';
 
 export default function ViewEstateStaff() {
@@ -13,11 +14,7 @@ export default function ViewEstateStaff() {
         </Link> <span className='text-sm'>/ Estate Staff Details</span> 
 
         <div className="bg-white p-5 mt-8">
-        <div className='bg-slate-300 p-2 h-32 relative'>
-                <div className='absolute top-16 left-5'>
-                    <img  src={ProfilePicture} style={{border:"3px solid #20B16A"}} className='rounded-full w-36 h-36 object-cover' alt="Username" />
-                </div>
-            </div>
+        <ViewImage image={ProfilePicture}/>
             <header className='flex justify-end mt-20'>
                <PrintAndDownload/> 
             </header>

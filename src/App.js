@@ -15,7 +15,7 @@ import AddProperty from './components/pages/Properties/AddProperty/AddProperty';
 import EditProperty from './components/pages/Properties/EditProperty/EditProperty';
 import ViewProperty from './components/pages/Properties/ViewProperty/ViewProperty';
 import Household from './components/pages/Household/Household';
-import CreateHousehold from './components/pages/Household/AddHousehold/CreateHousehold';
+import CreateHousehold from './components/pages/Household/CreateHousehold/CreateHousehold';
 import ViewHousehold from './components/pages/Household/ViewHousehold/ViewHousehold';
 import ViewHouseholdResident from './components/pages/Household/ViewHousehold/ViewResident';
 import EstateStaff from './components/pages/EstateStaff/EstateStaff';
@@ -33,7 +33,6 @@ import ViewSecurityGuard from './components/pages/Security/ViewSecurityGuard/Vie
 import Artisan from './components/pages/Artisan/Artisan';
 import ViewArtisan from './components/pages/Artisan/ViewArtisan/ViewArtisan';
 import Payments from './components/pages/Payments/Payments';
-import ViewPayment from './components/pages/Payments/ViewPayment/ViewPayment';
 import AddPayment from './components/pages/Payments/AddPayment/AddPayment';
 import AddReciepients from './components/pages/Payments/AddReciepient/AddReciepient';
 import Reports from './components/pages/Reports/Reports';
@@ -59,6 +58,9 @@ import User from './components/store/auth';
 import { useContext } from 'react';
 import SiteWorkerRequest from './components/pages/Approvals/Requests/SiteWorkerRequest';
 import ValidatedResult from './components/pages/Residents/ViewResident/ValidatedResult';
+import ViewFullPayment from './components/pages/Payments/ViewPayment/ViewFullPayment';
+import ViewInstallmentsPayment from './components/pages/Payments/ViewPayment/ViewInstallmentPayment';
+
 
 function App() {
 
@@ -126,7 +128,8 @@ function App() {
           <Route path='/payments' element={<Layout children={<Payments/>}/>}/>
           <Route path='/payments/add-payment' element={<Layout children={<AddPayment/>}/>}/>
           <Route path='/payments/add-payment/add-reciepients' element={<Layout children={<AddReciepients/>}/>}/>
-          <Route path='/payments/:id' element={<Layout children={<ViewPayment/>}/>}/>
+          <Route path='/payments/full/:id' element={<Layout children={<ViewFullPayment/>}/>}/>
+          <Route path='/payments/installments/:id' element={<Layout children={<ViewInstallmentsPayment/>}/>}/>
 
           <Route path='/reports' element={<Reports/>}/>
           <Route path='/reports/resident-report/:id' element={<Layout children={<ResidentDetails/>}/>}/>

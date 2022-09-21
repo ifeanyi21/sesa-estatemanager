@@ -32,7 +32,7 @@ function SideBarColoumn() {
         <WalletCard to={'/wallet'} name='Estate Wallet'/>
       <div className='mt-8 rounded py-5 px-4 shadow-lg' style={{width:'100%',height:600}}>
         <h6 className='font-medium text-left'>Today's Inflow</h6>
-        <ResponsiveContainer width={500} height={350}>
+        <ResponsiveContainer width={"100%"} height={"75%"}>
             <PieChart>
             <Pie
               data={chartData}

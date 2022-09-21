@@ -32,6 +32,9 @@ function PropertyForm() {
     <Form onSubmit={handleSuccessMessage} className='mt-8'>
 
     <div className="row mb-8">
+       <div className='mb-10'>
+            <p className='m-0 text-lg'>Property Information</p>
+        </div>
         <div className="col-lg-6 mb-3">
         <label className='text-sm mb-2 font-medium'>Estate <span className='text-danger'>*</span></label>
      <Form.Control />

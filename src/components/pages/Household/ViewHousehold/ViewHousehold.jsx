@@ -1,77 +1,20 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import ProfilePicture from '../../../../images/House.jpeg'
-import Car from '../../../../images/car.jpeg'
-import { Menu, } from '@headlessui/react'
-import HouseDropDown from './DropDown'
-import { Box } from '@mui/material'
-import { DataGrid } from '@mui/x-data-grid'
+import ViewImage from '../../../ViewPageImage/ViewImage'
+// import Car from '../../../../images/car.jpeg'
+// import { Menu, } from '@headlessui/react'
+// import HouseDropDown from './DropDown'
+// import { Box, Button } from '@mui/material'
+// import { DataGrid } from '@mui/x-data-grid'
+import HouseholdModal from './HouseholdModal/HouseholdModal'
 //import { DeleteIcon } from '../../../SideBar/icons'
 
 function ViewHousehold() {
-    const dummyResidents = [
-        {
-            id:1,
-            resCode:7373,
-            name:"Christopher",
-            gender:"Male",
-            number:"038373383",
-            category:"Alpha",
-            class:"Tenant (Resident)",
+   
+    // const dummyRFid = [1,2]
 
-        },
-        {
-            id:2,
-            resCode:1233,
-            name:"Chris",
-            gender:"Feale",
-            number:"33373383",
-            category:"Resident",
-            class:"Tenant (Resident)",
-            
-        }
-    ]
-    const columns = [
-        {field:"resCode", headerName:"Res. Code",sortable:false,width:100},
-        {field:"name", headerName:"Name",sortable:false,width:190},
-        {field:"gender", headerName:"Gender",sortable:false,width:180},
-        {field:"number", headerName:"Phone No.",sortable:false,width:120},
-        {field:"category", headerName:"Category",sortable:true,width:140},
-        {field:"class", headerName:"Resident Class",sortable:false,width:160},
-        {field:"toggle", headerName:"",sortable:false,width:30,
-        renderCell:params=> <HouseDropDown {...params}/>
-        },
-      
-        
-      ]
-
-      const columnsLandlord = [
-        {field:"resCode", headerName:"Res. Code",sortable:false,width:150},
-        {field:"name", headerName:"Name",sortable:false,width:190},
-        {field:"gender", headerName:"Gender",sortable:false,width:150},
-        {field:"number", headerName:"Phone No.",sortable:false,width:180},
-        {field:"class", headerName:"Resident Class",sortable:false,width:260},
-        {field:"toggle", headerName:"",sortable:false,width:30,
-        renderCell:params=> <HouseDropDown {...params}/>
-        },
-      
-        
-      ]
-
-    const dummyLandord = [
-        {
-            id:1,
-            resCode:"0373",
-            name:"Christopher",
-            gender:"Male",
-            number:"038373383",
-            class:"Tenant (Resident)",
-        }
-    ]
-
-    const dummyRFid = [1,2]
-
-    const dummyAccessCard = [1]
+    // const dummyAccessCard = [1]
   return (
     <div>
           <Link to='/household' className='no-underline text-sm'>
@@ -79,15 +22,8 @@ function ViewHousehold() {
         </Link> <span className='text-sm'>/ Household Details</span> 
 
         <div className="bg-white p-5 mt-8">
-        <div className='bg-slate-300 p-2 h-32 relative'>
-                <div className='absolute top-10 left-7'>
-                    <img  src={ProfilePicture} className='rounded-full w-36 h-36 object-cover' alt="Username" />
-                </div>
-            </div>
-            <header className='flex justify-end mt-20'>
-               <button className='btn' style={{backgroundColor:"#DA6900",color:"white"}}>Deactivate</button> 
-            </header>
-            <div className="table-responsive mt-8">
+            <ViewImage image={ProfilePicture}/>
+            <div className="table-responsive mt-24">
                 <table className="table table-bordered">
                     <tbody>
                         <tr>
@@ -134,61 +70,18 @@ function ViewHousehold() {
                     </tbody>
                 </table>
             </div>
-            <p className='text-xl font-semibold mt-6'>Resident List</p>
 
-            <Box
-      sx={{
-        height: 450,
-        width: '100%',
-        '& .MuiDataGrid-columnSeparator--sideRight': {
-          display: 'none !important',
-      },
-      '& .MuiDataGrid-columnHeaderTitle':{
-        fontWeight:600
-      },
-         "& .MuiCheckbox-root":{
-            color:'#D9D9D9'
-          },
-          '& .MuiCheckbox-root.Mui-checked':{
-            color:"#0446B9"
-          }
-      }}
-    >
-       <div style={{ height: 450, width: '100%', }} className="bg-white">
-          <DataGrid
-            rows={dummyResidents}
-            columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
-            checkboxSelection
-            disableSelectionOnClick
-          />
-        </div>
-    </Box>
+             <footer className='flex justify-between mt-20'>
+                 <HouseholdModal/>
+               <button className='btn' style={{border:"1px solid #FF9500",color:"#FF9500"}}>Deactivate</button> 
+            </footer>
+           
 
+
+
+{/*
                 <p className='text-xl font-semibold mt-20'>Landlord Details</p>
-                <Box
-                sx={{
-                    height: 200,
-                    width: '100%',
-                    '& .MuiDataGrid-columnSeparator--sideRight': {
-                    display: 'none !important',
-                },
-                '& .MuiDataGrid-columnHeaderTitle':{
-                    fontWeight:600
-                }
-                }}
-                >
-                <div style={{ height: 200, width: '100%', }} className="bg-white">
-                    <DataGrid
-                        rows={dummyLandord}
-                        columns={columnsLandlord}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        disableSelectionOnClick
-                    />
-                </div>
-                </Box>
+                
 
                 <p className='text-xl font-semibold mt-6'>RFID List</p>
 
@@ -300,7 +193,7 @@ function ViewHousehold() {
                         </div>
                         )
                     })
-                }
+                } */}
                 
 
         </div>

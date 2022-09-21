@@ -156,7 +156,7 @@ function ReportInfoGraphics() {
               <div className="flex items-baseline ml-3"><DotIcon color="#AE1911"/> <span className="ml-1">Check-out</span> </div>
             </div>
           </div>
-          <LineChartContainer data = {chartData} Xaxis="day" Yaxis="funds" datakey="funds" fill1="#3DEABA" fill2="#AE1911"/>
+          <LineChartContainer data = {chartData} Xaxis="day" Yaxis="funds" datakey="funds" fill1="#25BF18" fill2="#AE1911"/>
         </div>
     </div>
 </div>

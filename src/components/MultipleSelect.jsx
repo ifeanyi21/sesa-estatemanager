@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -55,10 +54,12 @@ export default function MultipleSelectChip() {
   return (
     <div>
       <FormControl sx={{ width: "97%" }} size="small">
+        <label>Work Days</label>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
+          label="Track payment"
           value={weekday}
           onChange={handleChange}
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
@@ -70,7 +71,7 @@ export default function MultipleSelectChip() {
             </Box>
           )}
           MenuProps={MenuProps}
-        >
+        > 
           {names.map((name) => (
             <MenuItem
               key={name}

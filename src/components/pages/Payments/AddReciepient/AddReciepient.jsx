@@ -297,7 +297,7 @@ function AddReciepients() {
                     </div>
                     {
                         type === "1" && <div className="col-md-4 flex items-start">
-                         <p>NB: All alphas are denoted with the icon </p><span className='ml-2'><AlphaIcon/></span>
+                         <p className='text-base text-black'>NB: All alphas are denoted with the icon </p><span className='ml-2'><AlphaIcon/></span>
                      </div>
                     }
                    

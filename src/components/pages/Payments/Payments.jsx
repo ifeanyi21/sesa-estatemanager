@@ -4,7 +4,23 @@ import EmptyData from '../../EmptyData/EmptyData'
 import PaymentProgressBar from './PaymentProgressBar'
 
 function Payments() {
-    const array = [10,0,40]
+    const array = [
+        {
+            id:1,
+            paymentPlan:"Full",
+        },
+         {
+            id:10,
+            paymentPlan:"Installment",
+        },
+         {
+            id:11,
+            paymentPlan:"Full",
+        },
+         {
+            id:9,
+            paymentPlan:"Installment",
+        },]
   return (
     <div>
         {
@@ -24,10 +40,10 @@ function Payments() {
                             <div className="row">
                             
                          <div className="col-lg-6 col-md-6 p-3">
-                             <p className='text-muted mb-3'>Product Code : <span className='text-black'></span></p>
+                             <p className='text-muted mb-3'>Product Code : <span className='text-black'>{payment.id}</span></p>
                              <p className='text-muted mb-3'>Product Name : <span className='text-black'></span></p>
                              <p className='text-muted mb-3'>Amount Type : <span className='text-black'></span></p>
-                             <p className='text-muted mb-3'>Payment Plan : <span className='text-black'></span></p>
+                             <p className='text-muted mb-3'>Payment Plan : <span className='text-black'>{payment.paymentPlan}</span></p>
                              <p className='text-muted mb-3'>Amount (Total) : <span className='text-black'></span></p>
                          </div>
                          <div className="col-lg-6 col-md-6 p-3">
@@ -46,7 +62,7 @@ function Payments() {
                         <div className="flex justify-end mb-1">
                       ₦5,000
                       </div>
-                         <PaymentProgressBar percent={45+payment}/>
+                         <PaymentProgressBar percent={45+payment.id}/>
                         <div className="text-center mt-1">
                         ₦2,000
                         </div>
@@ -54,7 +70,7 @@ function Payments() {
                          </div>
                          </div>
                          <div className="flex justify-end">
-                         <Link to={'/payments/'+payment} className='no-underline'>More Details</Link>
+                         <Link to={`${payment.paymentPlan === "Installment"? '/payments/installments/'+payment.id : '/payments/full/'+payment.id}`} className='no-underline'>More Details</Link>
                          </div>
 
                         </div>

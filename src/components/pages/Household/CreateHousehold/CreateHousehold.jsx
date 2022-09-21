@@ -1,12 +1,13 @@
 import {Link} from 'react-router-dom'
-import AddHousehold from './AddHousehold';
-import AddRFID from './AddRFID';
-import AddAccessCard from './AddAccessCard';
+
+import AddAccessCard from './AddAccessCard/AddAccessCard';
 import React,{useState} from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import AddHousehold from './AddHouse/AddHousehold';
+import AddRFID from './AddRFID/AddRFID';
 
 
 
