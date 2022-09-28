@@ -1,4 +1,4 @@
-@import url('./fonts/Satoshi/satoshi.css');
+@import url('./assests/fonts/Satoshi/satoshi.css');
 
 body, div, p, span, button{
     font-family: Satoshi,sans-serif !important;
@@ -10,4 +10,73 @@ h1,h2,h3,h4,h5,h6{
 
 hr{
     color:#DEDEDE !important
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination>li {
+    display: inline-block;
+    padding-left: 0;
+}
+
+.pagination>li {
+    list-style: none;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    color: #2c689c;
+    border-radius: 10px;
+    margin-left: -1px;
+}
+
+.pagination>li.active>a {
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+}
+
+
+.pagination>li:first-child>a,
+.pagination>li:first-child>span {
+    margin-left: 0;
+    padding: 0px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+   font-weight: bolder;
+   font-size: larger;
+   margin: 0px 20px;
+}
+
+.pagination>li:last-child>a,
+.pagination>li:last-child>span {
+    border-bottom-right-radius: 4px;
+    margin-right: 0;
+    padding: 0px !important;
+    border-top-right-radius: 4px;
+   font-weight: bolder;
+   font-size: larger;
+   margin: 0px 20px;
 }

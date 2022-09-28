@@ -7,16 +7,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { UserProvider } from './components/store/auth';
-import { ImageUploader } from './components/store/ImageUploader/ImageUploader';
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
      <UserProvider>
-      <ImageUploader>
         <App />
-      </ImageUploader>
      </UserProvider>
   </React.StrictMode>
 );

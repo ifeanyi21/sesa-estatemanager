@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Chip from '@mui/material/Chip';
+import * as React from "react";
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import Chip from "@mui/material/Chip";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -19,14 +19,14 @@ const MenuProps = {
 };
 
 const names = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 function getStyles(name, weekday, theme) {
   return {
@@ -37,7 +37,7 @@ function getStyles(name, weekday, theme) {
   };
 }
 
-export default function MultipleSelectChip() {
+export default function MultipleSelectChip(props) {
   const theme = useTheme();
   const [weekday, setWeekday] = React.useState([]);
 
@@ -47,15 +47,22 @@ export default function MultipleSelectChip() {
     } = event;
     setWeekday(
       // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
+      typeof value === "string" ? value.split(",") : value
     );
   };
+
+  props.getWeekdays(weekday)
+
+  //console.log(weekday);
 
   return (
     <div>
       <FormControl sx={{ width: "97%" }} size="small">
-        <label>Work Days</label>
+        <label className="text-sm mb-2">
+          Work days<span className="text-danger">*</span>
+        </label>
         <Select
+        sx={{ '& legend': { display: 'none' }, '& fieldset': { top: 0 },}}
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
@@ -64,14 +71,14 @@ export default function MultipleSelectChip() {
           onChange={handleChange}
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
           renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
               {selected.map((value) => (
                 <Chip key={value} label={value} />
               ))}
             </Box>
           )}
           MenuProps={MenuProps}
-        > 
+        >
           {names.map((name) => (
             <MenuItem
               key={name}

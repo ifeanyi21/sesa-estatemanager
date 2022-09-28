@@ -2,12 +2,12 @@ import Logo from '../../images/logo.png'
 import AppBarDropDown from './DropDown'
 import CSS from './AppBar.module.css'
 import SmallScreenSideBar from '../SideBar/SmallScreenSideBar'
-import {FaBell} from 'react-icons/fa'
 import React,{useState,useContext} from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import Notifications from './Notifications'
 import User from '../store/auth'
+import { NotificationBell } from '../SideBar/icons'
 
 function AppBar() {
 
@@ -25,7 +25,7 @@ function AppBar() {
           </div>
            
         </div>
-        <div className={`${CSS.rightAppBar} flex items-center justify-between border-l border-gray-300 p-2`}style={{width:'24%'}}>
+        <div className={`${CSS.rightAppBar} flex items-center justify-between border-l border-gray-300 p-2`}style={{width:'22%'}}>
             <div className='flex items-center'>
                 <div className='flex items-center'>
                    <img className='rounded-full mr-2' src={Logo} width={32} alt={`${currentUser.f_name} ${currentUser.l_name}`} />
@@ -71,7 +71,7 @@ const handleClose = () => {
       aria-expanded={open ? 'true' : undefined}
       onClick={handleClick}
     >
-      <FaBell/>
+      <NotificationBell/>
     </Button>
     <Menu
       id="basic-menu"

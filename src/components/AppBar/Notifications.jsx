@@ -1,5 +1,6 @@
 import { Button } from '@mui/material'
 import React from 'react'
+import { DotIcon } from '../SideBar/icons'
 
 function Notifications() {
   return (
@@ -11,9 +12,7 @@ function Notifications() {
   
         <div className='flex justify-between text-xs mb-3'>
             <div className='flex'>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="7" cy="7" r="7" fill="#0660FE"/>
-                </svg>
+                <DotIcon color={'#0660FE'}/>
                 <div className='ml-3'>
                     <p className='font-semibold mb-2'>Estate Management</p>
                     <p className='font-extralight'>Sunset Estate request for money withdrawal</p>
@@ -25,9 +24,7 @@ function Notifications() {
         </div>
         <div className='flex justify-between text-xs mb-3'>
             <div className='flex'>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="7" cy="7" r="7" fill="#0660FE"/>
-                </svg>
+                <DotIcon color={'#0660FE'}/>
                 <div className='ml-3'>
                     <p className='font-semibold mb-2'>Estate Management</p>
                     <p className='font-extralight'>Sunset Estate request for money withdrawal</p>

@@ -10,10 +10,15 @@
     .LayoutReport{
         width: 100% !important;
     }
+    .layoutReportContainer{
+        width:100%
+    }
 }
 
 .LayoutContainer{
     padding: 0px 1.5rem;
+    height: 100%;
+    background-color: #F1F1F1;
 }
 
 @media (max-width:450px){
