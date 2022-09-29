@@ -8,7 +8,7 @@ import { Upload } from "../../../components/Upload/Upload";
 import ProfilePicture from "../../../images/security.jpeg";
 import { Box, Button, FormControl, MenuItem, Select } from "@mui/material";
 import { DeleteButtonTrashIcon } from "../../../components/SideBar/icons";
-import MultipleSelectCheckmarks from "../../../components/MultipleSelect";
+import MultipleSelectChip from "../../../components/MultiSelect/MultipleSelect";
 
 function EstateStaffForm() {
   const [modalShow, setModalShow] = useState(false);
@@ -132,7 +132,7 @@ function EstateStaffForm() {
 
         <div className="col-lg-12">
           <div className="col-lg-6 col-md-12 mb-5">
-            <MultipleSelectCheckmarks getWeekdays={getWeekdays} />
+            <MultipleSelectChip getWeekdays={getWeekdays} />
           </div>
         </div>
 

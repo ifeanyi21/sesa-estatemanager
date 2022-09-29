@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 import House from "../../../images/House.jpeg";
 import SuccessModal from "../../../components/SuccessMessage/SuccessMessage";
 import { useLocation, Link, useParams } from "react-router-dom";
-import MultipleSelect from "../../../components/MultipleSelect";
+import MultipleSelectChip from "../../../components/MultiSelect/MultipleSelect";
 import { Upload } from "../../../components/Upload/Upload";
 import UploadFileImage from "../../../images/photo_library.svg";
 import CSS from "../../Household/Household.module.css";
@@ -172,7 +172,7 @@ function SiteWorkerForm() {
 
           <div className="col-lg-6 mb-3">
             <label className="mb-3"></label>
-            <MultipleSelect getWeekdays={getWeekdays} />
+            <MultipleSelectChip getWeekdays={getWeekdays} />
           </div>
 
           <div className="row">
